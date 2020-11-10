@@ -36,6 +36,16 @@ class LoginController extends Controller
         }
     }
 
+    // protected function backToadmin(Request $request)
+    // {
+    //     if ($request->session()->has('key')) {
+    //     $sessionData = $request->session()->get('key');
+    //         return redirect()->route('admin.dashboard');
+    //     }
+
+    //     return redirect($this->redirectTo);
+    // }
+
     /**
      * Create a new controller instance.
      *

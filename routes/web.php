@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); 
 Route::get('/loggedInAsUser/{userId}', 'HomeController@loggedInAsUser')->name('loggedInAsUser');
-Route::get('/admin', 'HomeController@backToAdmin')->name('backToAdmin');
+Route::get('/admin', 'HomeController@backToadmin')->name('backToadmin');
 
 
 Route::group(['prefix'=>'admin', 'middleware'=>['admin','auth'], 'namespace'=>'admin'], function(){

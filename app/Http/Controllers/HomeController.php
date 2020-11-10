@@ -30,16 +30,37 @@ class HomeController extends Controller
 
     public function loggedInAsUser($userId)
     {
+        $adminId = Auth::id();
+        Session::put('key', $adminId);
+        // dd($id);
         if (Auth::loginUsingId($userId))
         {
             return redirect()->intended('user/dashboard');
+            // return view('user.index', compact('id'));
         }
         else
         {
             return 'ERROR';
         }
+        
         // Auth::loginUsingId($userId);
         // return view('user.index');
+    }
+
+    public function backToadmin()
+    {
+        $admin = Session::get('key');
+        // dd($admin);
+
+        if (Auth::loginUsingId($admin))
+        {
+            return redirect()->route('admin.dashboard');
+            // return view('user.index', compact('id'));
+        }
+        else
+        {
+            return 'ERROR';
+        }
     }
 
     
